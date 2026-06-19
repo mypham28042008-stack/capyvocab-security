@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Capyvocab - Security Dashboard</title>
+  <link rel="stylesheet" href="/css/dashboard.css">
+  <link rel="stylesheet" href="/css/admin.css">
+  <link rel="stylesheet" href="/css/dark-mode.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="icon" href="/assets/favicon.ico">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-brand">
+        <img src="/assets/logo.jpg" alt="Capyvocab" class="brand-logo">
+        <span class="brand-name">Capyvocab</span>
+        <span class="brand-badge">Security</span>
+      </div>
+      
+      <nav class="sidebar-nav">
+        <a href="#" class="nav-item active" data-tab="dashboard">
+          <svg width="20" height="20"><use href="/sprite.svg#icon-dashboard"></use></svg>
+          <span>Dashboard</span>
+        </a>
+        <a href="#" class="nav-item" data-tab="admin">
+          <svg width="20" height="20"><use href="/sprite.svg#icon-settings"></use></svg>
+          <span>Admin Panel</span>
+        </a>
+        <a href="#" class="nav-item" data-tab="logs">
+          <svg width="20" height="20"><use href="/sprite.svg#icon-inbox"></use></svg>
+          <span>Security Logs</span>
+        </a>
+        <a href="#" class="nav-item" data-tab="attacks">
+          <svg width="20" height="20"><use href="/sprite.svg#icon-warning"></use></svg>
+          <span>Attack Testing</span>
+        </a>
+      </nav>
+      
+      <div class="sidebar-footer">
+        <div class="live-status">
+          <span class="live-dot"></span>
+          <span class="live-text">System Live</span>
+        </div>
+        <div class="ws-status" id="wsStatus">
+          <span class="ws-dot"></span>
+          <span class="ws-text">Connecting...</span>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <!-- Header -->
+      <header class="main-header">
+        <div class="header-left">
+          <h1 id="pageTitle">📊 Security Dashboard</h1>
+          <span class="header-time" id="headerTime"></span>
+        </div>
+        <div class="header-right">
+          <button class="theme-toggle" id="themeToggle" title="Toggle Dark Mode">
+            <svg width="20" height="20"><use href="/sprite.svg#icon-settings"></use></svg>
+          </button>
+          <button class="logout-btn" id="logoutBtn">Đăng xuất</button>
+        </div>
+      </header>
+
+      <!-- ===== TAB 1: DASHBOARD ===== -->
+      <div id="tab-dashboard" class="tab-content active">
+        <!-- Stats Cards -->
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-icon total">📊</div>
+            <div class="stat-info">
+              <span class="stat-value" id="totalRequests">0</span>
+              <span class="stat-label">Tổng Requests</span>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon blocked">🚫</div>
+            <div class="stat-info">
+              <span class="stat-value" id="blockedCount">0</span>
+              <span class="stat-label">Đã chặn</span>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon critical">🚨</div>
+            <div class="stat-info">
+              <span class="stat-value" id="criticalEvents">0</span>
+              <span class="stat-label">Sự kiện nguy hiểm</span>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon connected">🔌</div>
+            <div class="stat-info">
+              <span class="stat-value" id="wsConnections">0</span>
+              <span class="stat-label">WebSocket Clients</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Charts -->
+        <div class="charts-grid">
+          <div class="chart-card">
+            <h3>📈 Tấn công theo thời gian</h3>
+            <canvas id="attackChart"></canvas>
+          </div>
+          <div class="chart-card">
+            <h3>🎯 Phân loại sự kiện</h3>
+            <canvas id="eventChart"></canvas>
+          </div>
+        </div>
+
+        <!-- Real-time Events -->
+        <div class="events-card">
+          <div class="events-header">
+            <h3>🚨 Sự kiện bất thường (Real-time)</h3>
+            <span class="events-count" id="eventsCount">0 events</span>
+          </div>
+          <div class="events-container" id="eventsContainer">
+            <div class="event-placeholder">
+              <svg width="64" height="64" viewBox="0 0 24 24"><use href="/sprite.svg#icon-shield"></use></svg>
+              <p>Chờ sự kiện bảo mật...</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Top Blocked IPs -->
+        <div class="ip-card">
+          <h3>🔥 Top IP bị chặn nhiều nhất</h3>
+          <div class="ip-list" id="topIPs">
+            <div class="ip-placeholder">Chưa có dữ liệu</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== TAB 2: ADMIN ===== -->
+      <div id="tab-admin" class="tab-content">
+        <div class="admin-grid">
+          <!-- Config -->
+          <div class="admin-card">
+            <h3>⚙️ Cấu hình phòng thủ</h3>
+            <div class="config-form" id="configForm">
+              <div class="config-row">
+                <label>Rate Limit Attempts</label>
+                <input type="number" id="cfg-rate-limit" value="5">
+              </div>
+              <div class="config-row">
+                <label>Rate Limit Window (giây)</label>
+                <input type="number" id="cfg-rate-window" value="300">
+              </div>
+              <div class="config-row">
+                <label>Rate Limit Block (giây)</label>
+                <input type="number" id="cfg-rate-block" value="1800">
+              </div>
+              <div class="config-row">
+                <label>OTP Max Failures</label>
+                <input type="number" id="cfg-otp-failures" value="3">
+              </div>
+              <div class="config-row">
+                <label>OTP Block (giây)</label>
+                <input type="number" id="cfg-otp-block" value="900">
+              </div>
+              <div class="config-row">
+                <label>Trusted Device Threshold</label>
+                <input type="number" id="cfg-trusted" value="3">
+              </div>
+              <button class="btn-save-config" id="saveConfig">💾 Lưu cấu hình</button>
+            </div>
+          </div>
+
+          <!-- Users -->
+          <div class="admin-card">
+            <h3>👥 Người dùng</h3>
+            <div class="user-table-wrapper">
+              <table class="user-table" id="userTable">
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>Username</th>
+                    <th>Email</th>
+                    <th>Role</th>
+                    <th>Trusted</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody id="userTableBody">
+                  <tr><td colspan="6" class="loading-text">Đang tải...</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Security Stats -->
+          <div class="admin-card">
+            <h3>📊 Thống kê bảo mật</h3>
+            <div class="security-stats" id="securityStats">
+              <div class="stat-row">
+                <span>Tổng sự kiện:</span>
+                <span id="stat-total-events">0</span>
+              </div>
+              <div class="stat-row">
+                <span>Đã chặn:</span>
+                <span id="stat-blocked">0</span>
+              </div>
+              <div class="stat-row">
+                <span>Nguy hiểm:</span>
+                <span id="stat-critical">0</span>
+              </div>
+              <div class="stat-row">
+                <span>Rate Limit:</span>
+                <span id="stat-rate-limit">0</span>
+              </div>
+              <div class="stat-row">
+                <span>WebShell:</span>
+                <span id="stat-webshell">0</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== TAB 3: LOGS ===== -->
+      <div id="tab-logs" class="tab-content">
+        <div class="logs-card">
+          <div class="logs-header">
+            <h3>📋 Security Logs</h3>
+            <div class="logs-controls">
+              <select id="logFilter">
+                <option value="all">Tất cả</option>
+                <option value="rate_limit_blocked">Rate Limit</option>
+                <option value="webshell_blocked">WebShell</option>
+                <option value="session_hijack_detected">Session Hijack</option>
+                <option value="auth_bypass_detected">Auth Bypass</option>
+                <option value="login_success">Login Success</option>
+                <option value="login_error">Login Error</option>
+              </select>
+              <button class="btn-refresh-logs" id="refreshLogs">🔄 Refresh</button>
+            </div>
+          </div>
+          <div class="logs-container" id="logsContainer">
+            <div class="log-placeholder">Đang tải logs...</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== TAB 4: ATTACK TESTING ===== -->
+      <div id="tab-attacks" class="tab-content">
+        <div class="attack-card">
+          <h3>🧪 Attack Testing</h3>
+          <p class="attack-desc">Chạy các script tấn công để kiểm tra hệ thống phòng thủ</p>
+          
+          <div class="attack-controls">
+            <button class="btn-run-all" id="runAllAttacks">🚀 Chạy tất cả</button>
+            <span class="attack-status" id="attackStatus">Sẵn sàng</span>
+          </div>
+          
+          <div class="attack-results" id="attackResults">
+            <div class="attack-placeholder">Chưa có kết quả</div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="/js/websocket-client.js"></script>
+  <script src="/js/dashboard.js"></script>
+  <script src="/js/admin.js"></script>
+  <script src="/js/charts.js"></script>
+  <script src="/js/attack-runner-ui.js"></script>
+</body>
+</html>

@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 150" width="200" height="150">
+  <rect x="30" y="30" width="140" height="80" rx="8" fill="#f5f5f5" stroke="#ddd" stroke-width="2"/>
+  <polyline points="30,30 100,70 170,30" stroke="#ddd" stroke-width="2" fill="none"/>
+  <polyline points="30,110 60,85" stroke="#ddd" stroke-width="2" fill="none"/>
+  <polyline points="170,110 140,85" stroke="#ddd" stroke-width="2" fill="none"/>
+  <text x="100" y="140" text-anchor="middle" font-family="Arial" font-size="14" fill="#999">Hộp thư trống</text>
+</svg>

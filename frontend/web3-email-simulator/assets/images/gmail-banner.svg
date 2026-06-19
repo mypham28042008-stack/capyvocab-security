@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 80" width="400" height="80">
+  <!-- Background -->
+  <rect x="0" y="0" width="400" height="80" rx="8" fill="#f5f5f5"/>
+  
+  <!-- Gmail icon -->
+  <rect x="20" y="15" width="50" height="50" rx="8" fill="#EA4335"/>
+  <polyline points="20,15 45,35 70,15" stroke="#fff" stroke-width="3" fill="none"/>
+  <polyline points="20,65 33,52" stroke="#fff" stroke-width="3" fill="none"/>
+  <polyline points="70,65 57,52" stroke="#fff" stroke-width="3" fill="none"/>
+  
+  <!-- Text -->
+  <text x="90" y="38" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#333">GMAIL SIMULATOR</text>
+  <text x="90" y="58" font-family="Arial, sans-serif" font-size="12" fill="#999">OTP Receiver • Inbox Simulator</text>
+  
+  <!-- Status -->
+  <circle cx="370" cy="18" r="5" fill="#4CAF50"/>
+  <text x="375" y="22" font-family="Arial, sans-serif" font-size="10" fill="#4CAF50">● Online</text>
+</svg>

@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 200" width="400" height="200">
+  <!-- World Map (simplified) -->
+  <rect x="10" y="10" width="380" height="180" rx="8" fill="#1a2332"/>
+  <!-- Continents (simplified) -->
+  <ellipse cx="120" cy="80" rx="60" ry="40" fill="#2a3a4a" opacity="0.5"/>
+  <ellipse cx="280" cy="70" rx="50" ry="35" fill="#2a3a4a" opacity="0.5"/>
+  <ellipse cx="80" cy="130" rx="40" ry="25" fill="#2a3a4a" opacity="0.5"/>
+  <ellipse cx="320" cy="130" rx="45" ry="30" fill="#2a3a4a" opacity="0.5"/>
+  <!-- Threat dots -->
+  <circle cx="120" cy="80" r="6" fill="#ff4444" opacity="0.8">
+    <animate attributeName="r" values="6;12;6" dur="2s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="280" cy="70" r="4" fill="#ffaa00" opacity="0.8">
+    <animate attributeName="r" values="4;8;4" dur="1.5s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="80" cy="130" r="5" fill="#ff4444" opacity="0.8">
+    <animate attributeName="r" values="5;10;5" dur="2.5s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="320" cy="130" r="3" fill="#ffaa00" opacity="0.8">
+    <animate attributeName="r" values="3;6;3" dur="1.8s" repeatCount="indefinite"/>
+  </circle>
+  <text x="10" y="195" font-family="monospace" font-size="10" fill="#4a6a8a">● Đang tấn công  ● Cảnh báo cao</text>
+</svg>

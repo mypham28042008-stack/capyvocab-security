@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300">
+  <!-- Shield -->
+  <path d="M200 20 L260 50 L260 120 C260 180 200 230 200 230 C200 230 140 180 140 120 L140 50 L200 20Z" 
+        fill="#4A90D9" opacity="0.2" stroke="#4A90D9" stroke-width="2"/>
+  <path d="M200 40 L245 60 L245 115 C245 165 200 205 200 205 C200 205 155 165 155 115 L155 60 L200 40Z" 
+        fill="#4A90D9" opacity="0.3"/>
+  <!-- Lock inside shield -->
+  <rect x="180" y="110" width="40" height="30" rx="4" fill="#4A90D9" opacity="0.6"/>
+  <path d="M190 110 L190 95 C190 85 197 80 200 80 C203 80 210 85 210 95 L210 110" 
+        stroke="#4A90D9" stroke-width="3" fill="none"/>
+  <circle cx="200" cy="120" r="4" fill="#fff"/>
+  <line x1="200" y1="124" x2="200" y2="135" stroke="#fff" stroke-width="2"/>
+  <!-- Checkmark -->
+  <path d="M235 130 L245 140 L265 115" stroke="#4CAF50" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <!-- Small dots (decorative) -->
+  <circle cx="300" cy="80" r="3" fill="#4A90D9" opacity="0.2"/>
+  <circle cx="320" cy="60" r="2" fill="#4A90D9" opacity="0.2"/>
+  <circle cx="100" cy="60" r="3" fill="#4A90D9" opacity="0.2"/>
+  <circle cx="80" cy="80" r="2" fill="#4A90D9" opacity="0.2"/>
+</svg>

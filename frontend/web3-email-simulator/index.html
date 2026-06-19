@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gmail Simulator - OTP Receiver</title>
+  <link rel="stylesheet" href="/css/gmail.css">
+  <link rel="stylesheet" href="/css/inbox.css">
+  <link rel="icon" href="/assets/favicon.ico">
+</head>
+<body>
+  <div class="gmail-app">
+    <!-- Header -->
+    <header class="gmail-header">
+      <div class="header-left">
+        <div class="gmail-logo">
+          <svg width="32" height="32" viewBox="0 0 24 24">
+            <rect x="2" y="4" width="20" height="16" rx="2" fill="#EA4335"/>
+            <polyline points="2,4 12,12 22,4" stroke="white" stroke-width="2" fill="none"/>
+          </svg>
+          <span class="gmail-title">Gmail Simulator</span>
+          <span class="gmail-badge">OTP Receiver</span>
+        </div>
+      </div>
+      <div class="header-right">
+        <span class="user-email" id="userEmail">user1@capyvocab.com</span>
+        <button class="btn-delete-all" id="deleteAll">🗑️ Xóa tất cả</button>
+        <span class="status-badge online">● Online</span>
+      </div>
+    </header>
+
+    <!-- Main -->
+    <div class="gmail-main">
+      <!-- Sidebar -->
+      <aside class="gmail-sidebar">
+        <button class="btn-compose" disabled>
+          <svg width="20" height="20"><use href="/sprite.svg#icon-compose"></use></svg>
+          Soạn thư
+        </button>
+        <nav class="folder-nav">
+          <a href="#" class="folder-item active" data-folder="inbox">
+            <svg width="20" height="20"><use href="/sprite.svg#icon-inbox"></use></svg>
+            Hộp thư đến
+            <span class="badge" id="unreadCount">0</span>
+          </a>
+          <a href="#" class="folder-item" data-folder="sent">
+            <svg width="20" height="20"><use href="/sprite.svg#icon-email"></use></svg>
+            Đã gửi
+          </a>
+          <a href="#" class="folder-item" data-folder="trash">
+            <svg width="20" height="20"><use href="/sprite.svg#icon-trash"></use></svg>
+            Thùng rác
+          </a>
+        </nav>
+        <div class="sidebar-info">
+          <div class="ws-status">
+            <span class="ws-dot" id="wsDot"></span>
+            <span id="wsStatusText">Connecting...</span>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Inbox -->
+      <div class="gmail-inbox">
+        <!-- Toolbar -->
+        <div class="inbox-toolbar">
+          <div class="toolbar-left">
+            <input type="checkbox" id="selectAll">
+            <label for="selectAll"></label>
+            <span class="email-count" id="emailCount">0 emails</span>
+          </div>
+          <div class="toolbar-right">
+            <button class="btn-refresh" id="refreshInbox">🔄</button>
+          </div>
+        </div>
+
+        <!-- Email List -->
+        <div class="email-list" id="emailList">
+          <div class="email-placeholder">
+            <svg width="48" height="48"><use href="/sprite.svg#icon-inbox"></use></svg>
+            <p>Hộp thư trống</p>
+            <span>Chưa có email nào</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Email Detail -->
+      <div class="gmail-detail" id="emailDetail">
+        <div class="detail-placeholder">
+          <svg width="48" height="48"><use href="/sprite.svg#icon-email"></use></svg>
+          <p>Chọn một email để xem</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="gmail-footer">
+      <span>© 2026 Capyvocab Security System</span>
+      <span class="footer-status">● Hệ thống hoạt động</span>
+    </footer>
+  </div>
+
+  <script src="/js/websocket-client.js"></script>
+  <script src="/js/email-detail.js"></script>
+  <script src="/js/inbox.js"></script>
+  <script src="/js/notification.js"></script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 250 180" width="250" height="180">
+  <!-- Envelope -->
+  <rect x="55" y="40" width="140" height="85" rx="8" fill="#E8F5E9" stroke="#4CAF50" stroke-width="2"/>
+  <polyline points="55,40 125,75 195,40" stroke="#4CAF50" stroke-width="2" fill="none"/>
+  <polyline points="55,125 80,100" stroke="#4CAF50" stroke-width="2" fill="none"/>
+  <polyline points="195,125 170,100" stroke="#4CAF50" stroke-width="2" fill="none"/>
+  
+  <!-- Checkmark -->
+  <circle cx="125" cy="90" r="20" fill="#4CAF50" opacity="0.1"/>
+  <path d="M115 88 L123 96 L135 82" stroke="#4CAF50" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  
+  <!-- Text -->
+  <text x="125" y="150" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#4CAF50" font-weight="bold">Email đã gửi!</text>
+  <text x="125" y="168" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#888">OTP đã được gửi đến hộp thư</text>
+</svg>

@@ -1,0 +1,108 @@
+/* ===== EMAIL ITEM VARIANTS ===== */
+.email-item .email-from {
+  font-weight: 500;
+}
+
+.email-item .email-subject {
+  color: var(--text-primary);
+}
+
+.email-item .email-preview {
+  color: var(--text-secondary);
+}
+
+/* ===== OTP HIGHLIGHT ===== */
+.email-item .otp-badge {
+  background: #e8f0fe;
+  color: var(--accent);
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 600;
+  font-family: monospace;
+  letter-spacing: 2px;
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.email-item.new {
+  animation: slideIn 0.3s ease;
+}
+
+/* ===== SCROLLBAR ===== */
+.email-list::-webkit-scrollbar,
+.gmail-detail::-webkit-scrollbar {
+  width: 6px;
+}
+
+.email-list::-webkit-scrollbar-track,
+.gmail-detail::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.email-list::-webkit-scrollbar-thumb,
+.gmail-detail::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 3px;
+}
+
+.email-list::-webkit-scrollbar-thumb:hover,
+.gmail-detail::-webkit-scrollbar-thumb:hover {
+  background: #aaa;
+}
+
+/* ===== DARK MODE SUPPORT ===== */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-primary: #202124;
+    --bg-secondary: #2d2e30;
+    --bg-sidebar: #202124;
+    --border-color: #3c4043;
+    --text-primary: #e8eaed;
+    --text-secondary: #9aa0a6;
+    --text-light: #80868b;
+    --hover-bg: #3c4043;
+  }
+  
+  .status-badge.online {
+    background: #1e3a2a;
+    color: #81c995;
+  }
+  
+  .folder-item.active {
+    background: #2d3a5e;
+    color: #8ab4f8;
+  }
+  
+  .email-item.unread {
+    background: #2d2e30;
+  }
+  
+  .email-item.selected {
+    background: #2d3a5e;
+  }
+  
+  .detail-body .otp-code {
+    background: #3c4043;
+    color: #8ab4f8;
+  }
+  
+  .btn-delete-all {
+    background: #3c1a1a;
+    color: #f28b82;
+  }
+  
+  .btn-delete-all:hover {
+    background: #4a2020;
+  }
+}

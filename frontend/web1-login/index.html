@@ -1,0 +1,102 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Capyvocab - Đăng nhập</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/login.css">
+  <link rel="icon" href="/assets/favicon.ico">
+</head>
+<body>
+  <div class="login-container">
+    <div class="login-card">
+      <!-- Logo -->
+      <div class="logo-container">
+        <img src="/assets/logo.jpg" alt="Capyvocab" class="logo">
+        <h1>Capyvocab</h1>
+        <p class="subtitle">Hệ thống bảo mật đa tầng</p>
+      </div>
+
+      <!-- Form đăng nhập -->
+      <form id="loginForm">
+        <div class="form-group">
+          <label for="username">
+            <svg class="icon" width="20" height="20">
+              <use href="/sprite.svg#icon-user"></use>
+            </svg>
+            Tên đăng nhập
+          </label>
+          <input type="text" id="username" placeholder="Nhập tên đăng nhập" required>
+        </div>
+
+        <div class="form-group">
+          <label for="password">
+            <svg class="icon" width="20" height="20">
+              <use href="/sprite.svg#icon-lock"></use>
+            </svg>
+            Mật khẩu
+          </label>
+          <div class="password-wrapper">
+            <input type="password" id="password" placeholder="Nhập mật khẩu" required>
+            <button type="button" id="togglePassword" class="toggle-btn">
+              <svg width="20" height="20">
+                <use href="/sprite.svg#icon-eye-open"></use>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <div id="alertContainer" class="alert-container"></div>
+
+        <button type="submit" id="loginBtn" class="login-btn">
+          <span class="btn-text">Đăng nhập</span>
+          <div class="btn-spinner hidden">
+            <div class="spinner"></div>
+          </div>
+        </button>
+      </form>
+
+      <!-- OTP Modal -->
+      <div id="otpModal" class="otp-modal hidden">
+        <div class="otp-modal-content">
+          <div class="otp-icon">
+            <svg width="48" height="48">
+              <use href="/sprite.svg#icon-otp"></use>
+            </svg>
+          </div>
+          <h2>Xác thực OTP</h2>
+          <p class="otp-desc">Chúng tôi đã gửi mã OTP đến email của bạn</p>
+          <div class="otp-input-group">
+            <input type="text" id="otpInput" maxlength="6" placeholder="Nhập mã OTP" autofocus>
+          </div>
+          <div class="otp-actions">
+            <button id="verifyOtpBtn" class="otp-btn primary">Xác nhận</button>
+            <button id="resendOtpBtn" class="otp-btn secondary">Gửi lại</button>
+          </div>
+          <div id="otpAlert" class="otp-alert"></div>
+          <span class="otp-timer" id="otpTimer">05:00</span>
+        </div>
+      </div>
+
+      <!-- Footer -->
+      <div class="login-footer">
+        <span class="security-badge">
+          <svg width="16" height="16">
+            <use href="/sprite.svg#icon-shield"></use>
+          </svg>
+          Bảo mật 7 tầng
+        </span>
+        <span class="live-status">
+          <span class="live-dot"></span>
+          Hệ thống hoạt động
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <script src="/js/alert.js"></script>
+  <script src="/js/otp.js"></script>
+  <script src="/js/login.js"></script>
+</body>
+</html>

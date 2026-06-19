@@ -1,0 +1,98 @@
+/* ===== DARK MODE ===== */
+body.dark-mode {
+  --bg-primary: #121212;
+  --bg-secondary: #1e1e1e;
+  --bg-sidebar: #0a0e1a;
+  --text-primary: #e0e0e0;
+  --text-secondary: #a0a0a0;
+  --text-light: #6b7a8f;
+  --border-color: #2a2a2a;
+  --shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode .stat-card,
+body.dark-mode .chart-card,
+body.dark-mode .events-card,
+body.dark-mode .ip-card,
+body.dark-mode .admin-card,
+body.dark-mode .logs-card,
+body.dark-mode .attack-card {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+}
+
+body.dark-mode .main-header {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+}
+
+body.dark-mode .config-row input {
+  background: #2a2a2a;
+  color: var(--text-primary);
+  border-color: var(--border-color);
+}
+
+body.dark-mode .user-table thead {
+  background: #2a2a2a;
+}
+
+body.dark-mode .user-table td {
+  border-color: var(--border-color);
+}
+
+body.dark-mode .user-table tr:hover {
+  background: #2a2a2a;
+}
+
+body.dark-mode .stat-row {
+  background: #2a2a2a;
+}
+
+body.dark-mode .event-item {
+  background: #2a2a2a;
+}
+
+body.dark-mode .event-item:hover {
+  background: #333;
+}
+
+body.dark-mode .ip-item {
+  background: #2a2a2a;
+}
+
+body.dark-mode .attack-result-item {
+  background: #2a2a2a;
+}
+
+body.dark-mode .logs-controls select {
+  background: #2a2a2a;
+  color: var(--text-primary);
+  border-color: var(--border-color);
+}
+
+body.dark-mode .btn-refresh-logs {
+  background: #2a2a2a;
+  color: var(--text-primary);
+  border-color: var(--border-color);
+}
+
+body.dark-mode .btn-refresh-logs:hover {
+  background: #333;
+}
+
+body.dark-mode .log-entry {
+  border-color: var(--border-color);
+}
+
+body.dark-mode .log-entry:hover {
+  background: #2a2a2a;
+}
+
+/* Toggle button for dark mode */
+body.dark-mode .theme-toggle {
+  color: var(--text-primary);
+}
+
+body.dark-mode .theme-toggle:hover {
+  background: #2a2a2a;
+}

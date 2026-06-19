@@ -1,0 +1,27 @@
+.checkmark-circle {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 3px solid #4CAF50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: scale-in 0.5s ease-out;
+}
+
+.checkmark-circle .checkmark {
+  color: #4CAF50;
+  font-size: 30px;
+  animation: draw-check 0.5s ease-out;
+}
+
+@keyframes scale-in {
+  0% { transform: scale(0); }
+  80% { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}
+
+@keyframes draw-check {
+  0% { opacity: 0; transform: scale(0); }
+  100% { opacity: 1; transform: scale(1); }
+}
